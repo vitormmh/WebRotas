@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WebRotas.Models.Noticia>
+
+@{
+    ViewBag.Title = "TodaAsNoticias";
+}
+
+<h2>Todas As Noticias</h2>
+
+
+<div>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                @Html.ActionLink(item.Titulo, "MostraNoticia", "Home", new
+       {
+           @noticiaId = item.NoticiaId,
+           @categoria = item.Categoria,
+           @titulo = item.Titulo
+       }, null)
+            <em>@Html.DisplayFor(Item => item.Categoria)</em>
+            <b>@Html.DisplayFor(Item => item.Data)</b>
+        </li>
+        }
+
+    </ul>
+</div>   
